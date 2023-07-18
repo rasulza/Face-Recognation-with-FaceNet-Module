@@ -1,0 +1,61 @@
+
+<style>
+body {
+  background-color: #F5F5F5;
+}
+
+.table-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.table-wrapper table {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-wrapper th, td {
+  text-align: center;
+  padding: 12px;
+}
+
+.table-wrapper th {
+  background-color: #F2F2F2;
+}
+
+.table-wrapper tr:nth-child(even) {
+  background-color: #EFEFEF;
+}
+</style>
+
+<div class="text-center mt-5" style="background-color: #FFFFFF;">
+    <a href="{% url 'home:bread_num' %}"> <button class="btn btn-primary btn-lg">درخواست نوبت</button> </a>
+</div>
+
+<div class="row" style="background-color: #FFFFFF;">
+  <div class="col-md-12">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>شماره نوبت</th>
+            <th> تعداد  </th>
+            <th>زمان انتظار </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for num_one in nums_and_ones %}
+          <tr>
+            <td>{{ num_one.name }}</td>
+            <td>{{ num_one.bread_number  }}</td>
+            <td>{{ num_one.waitingـtime }} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
